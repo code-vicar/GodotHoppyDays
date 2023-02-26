@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/pain.ogg-1c84f14c5dd0b9d5c393aea8eb079eeb.oggstr"
+
+[deps]
+
+source_file="res://Assets/SFX/pain.ogg"
+dest_files=[ "res://.import/pain.ogg-1c84f14c5dd0b9d5c393aea8eb079eeb.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

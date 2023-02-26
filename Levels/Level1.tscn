@@ -1,0 +1,95 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/PlatformTileset.tres" type="TileSet" id=2]
+[ext_resource path="res://Levels/BGM.gd" type="Script" id=3]
+[ext_resource path="res://Assets/GFX/Background/bg_layer1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/GFX/Background/bg_layer2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/GFX/Background/bg_layer3.png" type="Texture" id=6]
+[ext_resource path="res://Assets/GFX/Background/bg_layer4.png" type="Texture" id=7]
+[ext_resource path="res://Spikes.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Coin.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/SFX/Chiptune_Adventures_1.ogg" type="AudioStream" id=10]
+[ext_resource path="res://JumpPad.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Levels/Gamestate.gd" type="Script" id=12]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource( 12 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1224, 747 )
+collision_mask = 14
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+collision_layer = 2
+format = 1
+tile_data = PoolIntArray( -458743, 6, 0, -65508, 6, 0, 196644, 6, 0, 327700, 7, 0, 393247, 7, 0, 589848, 7, 0, 655395, 7, 0, 917483, 0, 0, 917535, 7, 0, 1507304, 2, 0, 1507310, 2, 0, 1507314, 3, 0, 1507318, 3, 0, 1507321, 3, 0, 1507325, 2, 0, 1441795, 2, 0, 1441801, 2, 0, 1441807, 2, 0, 1441813, 2, 0, 1441819, 2, 0, 1441825, 2, 0, 1441831, 2, 0, 1441837, 2, 0 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2( 0, -850 )
+transform = Transform2D( 1, 0, 0, 1, 0, -850 )
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.05, 0.05 )
+motion_mirroring = Vector2( 2048, 2048 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 4 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 0, -150 )
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer2"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 5 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 0, -50 )
+motion_scale = Vector2( 0.25, 0.25 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer3"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 6 )
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 0, 150 )
+motion_scale = Vector2( 0.5, 0.5 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer4"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 7 )
+
+[node name="Spikes" parent="." instance=ExtResource( 8 )]
+
+[node name="Spikes2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1636, 552 )
+
+[node name="Coin" parent="." instance=ExtResource( 9 )]
+
+[node name="Coin2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 762, -623 )
+
+[node name="Coin3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1984, -214 )
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -8.0
+script = ExtResource( 3 )
+
+[node name="JumpPad" parent="." instance=ExtResource( 11 )]
+position = Vector2( -419, 1368 )
+
+[node name="JumpPad2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 2942, 1367 )
